@@ -7,14 +7,16 @@ ReactFC.fcRoot(FusionCharts, TimeSeries);
 
 const jsonify = (res) => res.json();
 const dataFetch = fetch(
-  "https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/plotting-multiple-series-on-time-axis-data.json"
+  "https://my-json-server.typicode.com/anshudesai1299/xyz/users.json"
 ).then(jsonify);
 const schemaFetch = fetch(
-  "https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/plotting-multiple-series-on-time-axis-schema.json"
+  "https://my-json-server.typicode.com/anshudesai1299/abc/schema"
 ).then(jsonify);
 
 const dataSource = {
-  chart: {},
+  chart: {
+    multicanvas: false
+  },
   caption: {
     text: "Sales Analysis"
   },
@@ -24,7 +26,14 @@ const dataSource = {
   //series: "Type",
   yaxis: [
     {
-      plot: "Sales Value",
+      plot: "AvgSpeed",
+      title: "Sale Value",
+      format: {
+        prefix: "$"
+      }
+    },
+    {
+      plot: "FuelCons",
       title: "Sale Value",
       format: {
         prefix: "$"
